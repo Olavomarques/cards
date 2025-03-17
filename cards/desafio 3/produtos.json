@@ -1,0 +1,57 @@
+[
+    {
+        "nome": "Mustang ",
+        "preco":  529.0000,
+        "imagem": "https://bkparts.com.br/wp-content/uploads/2023/09/ford-mustang-06042023102521819.jpeg"
+    },
+    {
+        "nome": " Pagani Huayra Imola",
+        "preco": 27.000000,
+        "imagem": "https://neonseguros.com.br/wp-content/uploads/2023/10/Pagani-Imola-Geneva-6-2048x1152.jpeg"
+    },
+    {
+        "nome": "Bugatti Bolide",
+        "preco": 24.000000,
+        "imagem": "https://neonseguros.com.br/wp-content/uploads/2023/10/2ivix805pu0b-05-bugatti-bolide-prototype-2048x1152.jpeg"
+    },
+    {
+        "nome": "Mercedes-Benz CLA",
+        "preco": 142.9000,
+        "imagem": "data:image/jpeg;base64,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"
+    },
+    {
+        "nome": "Bugatti Divo",
+        "preco": 30.000000,
+        "imagem": "https://neonseguros.com.br/wp-content/uploads/2023/10/Final-Bugatti-Divo-4-2048x1152.jpeg"
+    },
+    {
+        "nome": " Pagani Zonda HP Barchetta",
+        "preco": 93.800000,
+        "imagem": "https://neonseguros.com.br/wp-content/uploads/2023/10/01-pagani-zonda-hp-barchetta-pebble-1-2048x1152.jpeg"
+    },
+    {
+        "nome": " Rolls-Royce Sweptail",
+        "preco": 65.300000,
+        "imagem": "https://neonseguros.com.br/wp-content/uploads/2023/10/2017-rolls-royce-sweptail-1200x800-1.jpeg"
+    },
+    {
+        "nome": "  Bugatti Centodieci",
+        "preco": 46.800000,
+        "imagem": "https://neonseguros.com.br/wp-content/uploads/2023/10/1655463168AAYrwlp.jpeg"
+    },
+    {
+        "nome": " Rolls-Royce Boat Tail",
+        "preco": 149.000000,
+        "imagem": "https://neonseguros.com.br/wp-content/uploads/2023/10/rolls-royce-boat-tail.jpeg"
+    },
+    {
+        "nome": " Pagani Codalunga",
+        "preco": 38.000000,
+        "imagem": "https://neonseguros.com.br/wp-content/uploads/2023/10/Pagani-Codalunga.jpeg"
+    },
+    {
+        "nome": "SP Automotive Chaos",
+        "preco": 32.600000,
+        "imagem": "https://neonseguros.com.br/wp-content/uploads/2023/10/SP-Automotive-Chaos-6.jpeg"
+    }
+]

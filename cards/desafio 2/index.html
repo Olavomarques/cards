@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Carros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lista de Carros</h1>
+    <ul id="lista-produtos"></ul>
+
+    <script>
+       
+        async function carregarProdutos() {
+            try {
+                const resposta = await fetch('produtos.json'); 
+                const produtos = await resposta.json(); 
+                
+                const lista = document.getElementById('lista-produtos');
+
+                produtos.forEach(produto => {
+                    const item = document.createElement('li');
+                    item.innerHTML = `<strong>${produto.nome}</strong> - R$ ${produto.preco.toLocaleString('pt-BR', { minimumFractionDigits: 6 })}`;
+                    lista.appendChild(item);
+                });
+
+            } catch (erro) {
+                console.error("Erro ao carregar os produtos:", erro);
+            }
+        }
+
+        
+        carregarProdutos();
+    </script>
+
+</body>
+</html>

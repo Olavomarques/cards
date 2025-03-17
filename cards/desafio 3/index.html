@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Carros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .buttons {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .btn-lista {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-cartao {
+            background-color: #28a745;
+            color: white;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .lista ul {
+            list-style: none;
+            padding: 0;
+        }
+        .lista li {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+        }
+        .cartao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+        }
+        .cartao img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lista de Carros</h1>
+    
+    <!-- Botões para alternar a exibição -->
+    <div class="buttons">
+        <button class="btn-lista" onclick="exibirLista()">Exibir em Lista</button>
+        <button class="btn-cartao" onclick="exibirCartoes()">Exibir em Cartões</button>
+    </div>
+
+    <div id="produtos-container" class="container"></div>
+
+    <script>
+        let produtos = [];
+
+        // Função para carregar os produtos do JSON
+        async function carregarProdutos() {
+            try {
+                const resposta = await fetch('produtos.json'); // Carrega o arquivo JSON
+                produtos = await resposta.json(); // Converte para JSON
+                exibirLista(); // Exibe a lista por padrão
+            } catch (erro) {
+                console.error("Erro ao carregar os produtos:", erro);
+            }
+        }
+
+        // Função para exibir produtos como lista
+        function exibirLista() {
+            const container = document.getElementById('produtos-container');
+            container.innerHTML = ''; // Limpa o conteúdo anterior
+            container.className = 'container lista'; // Define classe para lista
+
+            const ul = document.createElement('ul');
+            produtos.forEach(produto => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${produto.nome}</strong> - R$ ${produto.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+                ul.appendChild(li);
+            });
+
+            container.appendChild(ul);
+        }
+
+        // Função para exibir produtos como cartões
+        function exibirCartoes() {
+            const container = document.getElementById('produtos-container');
+            container.innerHTML = ''; // Limpa o conteúdo anterior
+            container.className = 'container'; // Define classe para cartões
+
+            produtos.forEach(produto => {
+                const div = document.createElement('div');
+                div.className = 'cartao';
+                div.innerHTML = `
+                    <img src="${produto.imagem}" alt="${produto.nome}">
+                    <strong>${produto.nome}</strong>
+                    <p>R$ ${produto.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Carregar produtos ao iniciar
+        carregarProdutos();
+    </script>
+
+</body>
+</html>
